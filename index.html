@@ -3,412 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giuseppe & Diana — Il Nostro Matrimonio 💍</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<title>Francesca &amp; Giuseppe — Matrimonio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --cream: #FAF7F2;
-    --warm: #F0E8DC;
-    --gold: #C9A96E;
-    --gold-dark: #9E7A3F;
-    --text: #2C2015;
-    --text-muted: #7A6850;
-    --card-bg: #FFFDF9;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background-color: var(--cream);
-    color: var(--text);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  .noise {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-  }
-
-  .page { position: relative; z-index: 1; }
-
-  /* ── HERO ── */
-  .hero {
-    text-align: center;
-    padding: 60px 20px 40px;
-    position: relative;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--gold));
-  }
-
-  .date-line {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  .names {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(34px, 9vw, 96px);
-    line-height: 1.1;
-    color: var(--text);
-    letter-spacing: -0.01em;
-    word-break: break-word;
-  }
-
-  .names .amp {
-    font-style: italic;
-    color: var(--gold);
-    font-size: 0.75em;
-    margin: 0 4px;
-  }
-
-  .tagline {
-    margin-top: 24px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(16px, 3vw, 20px);
-    color: var(--text-muted);
-    font-weight: 300;
-  }
-
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 40px auto;
-    max-width: 300px;
-  }
-
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.4;
-  }
-
-  .divider-ornament {
-    font-size: 18px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  /* ── INTRO TEXT ── */
-  .intro {
-    text-align: center;
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 0 24px 64px;
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--text-muted);
-  }
-
-  .intro strong {
-    color: var(--text);
-    font-weight: 400;
-  }
-
-  /* ── CARDS SECTION ── */
-  .section {
-    padding: 0 16px 60px;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 5vw, 38px);
-    font-weight: 300;
-    margin-bottom: 8px;
-  }
-
-  .section-sub {
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    margin-bottom: 48px;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid rgba(201,169,110,0.25);
-    border-radius: 4px;
-    padding: 36px 28px;
-    text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.07);
-  }
-
-  .card-icon {
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .card-icon::before, .card-icon::after {
-    content: '·';
-    color: var(--gold);
-    opacity: 0.4;
-  }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 6px;
-    color: var(--text);
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-
-  .qr-wrap {
-    display: inline-block;
-    padding: 12px;
-    background: white;
-    border: 1px solid rgba(201,169,110,0.2);
-    border-radius: 4px;
-  }
-
-  .qr-wrap canvas {
-    display: block !important;
-  }
-
-  .qr-wrap img {
-    display: none !important;
-  }
-
-  /* Album code card — full width */
-  .card-album {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    text-align: left;
-    padding: 40px 48px;
-  }
-
-  @media (max-width: 600px) {
-    .card-album {
-      flex-direction: column;
-      text-align: center;
-      padding: 36px 24px;
-      gap: 28px;
-    }
-  }
-
-  .album-text { flex: 1; }
-
-  .album-code {
-    display: inline-block;
-    margin-top: 14px;
-    font-family: 'Jost', monospace;
-    font-weight: 400;
-    font-size: 26px;
-    letter-spacing: 0.08em;
-    color: var(--gold-dark);
-    background: rgba(201,169,110,0.1);
-    border: 1px solid rgba(201,169,110,0.3);
-    border-radius: 4px;
-    padding: 6px 18px;
-  }
-
-  .album-note {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 10px;
-    line-height: 1.5;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    text-align: center;
-    padding: 40px 24px 60px;
-    position: relative;
-  }
-
-  footer::before {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.4;
-    margin: 0 auto 32px;
-  }
-
-  .footer-names {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 20px;
-    color: var(--text-muted);
-  }
-
-  .footer-heart {
-    display: block;
-    font-size: 16px;
-    margin-top: 8px;
-    color: var(--gold);
-    letter-spacing: 0.4em;
-  }
-
-  @media (max-width: 480px) {
-    .cards { grid-template-columns: 1fr; }
-    .card { padding: 28px 20px; }
-    .hero { padding: 50px 16px 32px; }
-    .tagline { font-size: 15px; }
-    .date-line { font-size: 10px; letter-spacing: 0.2em; }
-    .qr-wrap canvas { width: 140px !important; height: 140px !important; }
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero, .intro, .section { animation: fadeUp 0.9s ease both; }
-  .intro { animation-delay: 0.15s; }
-  .section { animation-delay: 0.25s; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #FAF7F2;
+  --gold: #C9A96E;
+  --gold-dark: #8A6830;
+  --text: #2C2015;
+  --muted: #7A6850;
+  --card: #FFFDF9;
+  --border: rgba(201,169,110,0.28);
+}
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.hero {
+  text-align: center;
+  padding: 56px 20px 36px;
+}
+.hero-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  margin: 0 auto 28px;
+}
+.label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.names {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 11vw, 88px);
+  line-height: 1.1;
+  color: var(--text);
+}
+.amp { font-style: italic; color: var(--gold); }
+.tagline {
+  margin-top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(15px, 4vw, 19px);
+  color: var(--muted);
+  line-height: 1.5;
+  padding: 0 16px;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 260px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.35;
+}
+.divider span { color: var(--gold); font-size: 16px; }
+.intro {
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.intro strong { color: var(--text); font-weight: 400; }
+.section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+.section-title {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(26px, 6vw, 36px);
+  margin-bottom: 6px;
+}
+.section-sub {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.store-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (min-width: 520px) {
+  .store-cards { grid-template-columns: 1fr 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 20px;
+  text-align: center;
+}
+.card-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+.qr-wrap { display: flex; justify-content: center; }
+.qr-wrap > div {
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  line-height: 0;
+}
+.qr-wrap canvas { display: block !important; }
+.qr-wrap img    { display: none  !important; }
+.album-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px 24px;
+  text-align: center;
+}
+.album-card .card-title { font-size: 24px; margin-bottom: 10px; }
+.album-card .card-desc  { margin-bottom: 16px; }
+.album-code {
+  display: inline-block;
+  font-family: 'Jost', monospace;
+  font-weight: 400;
+  font-size: clamp(18px, 5vw, 26px);
+  letter-spacing: 0.06em;
+  color: var(--gold-dark);
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 4px;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  word-break: break-all;
+}
+.album-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+footer {
+  text-align: center;
+  padding: 32px 20px 56px;
+}
+footer::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.35;
+  margin: 0 auto 28px;
+}
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--muted);
+}
+.footer-sym {
+  display: block;
+  margin-top: 8px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  font-size: 14px;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero    { animation: fadeUp 0.8s ease both; }
+.intro   { animation: fadeUp 0.8s ease 0.1s both; }
+.section { animation: fadeUp 0.8s ease 0.2s both; }
 </style>
 </head>
 <body>
-<div class="noise"></div>
-<div class="page">
 
-  <!-- HERO -->
-  <header class="hero">
-    <p class="date-line">Il nostro giorno speciale</p>
-    <h1 class="names">Giuseppe<span class="amp">&amp;</span>Diana</h1>
-    <p class="tagline">Condividi con noi i tuoi scatti più belli</p>
-  </header>
+<header class="hero">
+  <span class="hero-line"></span>
+  <p class="label">Il nostro giorno speciale</p>
+  <h1 class="names">Francesca <span class="amp">&amp;</span> Giuseppe</h1>
+  <p class="tagline">Condividi con noi i tuoi scatti più belli</p>
+</header>
 
-  <!-- INTRO -->
-  <div class="divider" role="presentation"><span class="divider-ornament">❧</span></div>
-  <p class="intro">
-    Ogni foto racconta una storia.<br>
-    Scarica <strong>WedShots</strong> e immortala i momenti più preziosi di questo giorno,
-    che resteranno con noi per sempre. ♡
-  </p>
+<div class="divider"><span>❧</span></div>
 
-  <!-- QR SECTION -->
-  <section class="section">
-    <h2 class="section-title">Scarica l'app</h2>
-    <p class="section-sub">Disponibile gratuitamente su entrambi gli store</p>
+<p class="intro">
+  Ogni foto racconta una storia.<br>
+  Scarica <strong>WedShots</strong> e immortala i momenti più preziosi di questo giorno,
+  che resteranno con noi per sempre. ♡
+</p>
 
-    <div class="cards">
+<section class="section">
+  <h2 class="section-title">Scarica l'app</h2>
+  <p class="section-sub">Disponibile gratuitamente su entrambi gli store</p>
 
-      <!-- Google Play -->
-      <div class="card">
-        <div class="card-icon">Android</div>
-        <h3 class="card-title">Google Play</h3>
-        <p class="card-desc">Inquadra il codice con la fotocamera del tuo smartphone Android</p>
-        <div class="qr-wrap">
-          <div id="qr-android"></div>
-        </div>
-      </div>
-
-      <!-- App Store -->
-      <div class="card">
-        <div class="card-icon">iPhone</div>
-        <h3 class="card-title">App Store</h3>
-        <p class="card-desc">Inquadra il codice con la fotocamera del tuo iPhone o iPad</p>
-        <div class="qr-wrap">
-          <div id="qr-ios"></div>
-        </div>
-      </div>
-
-      <!-- Album code -->
-      <div class="card card-album">
-        <div class="album-text">
-          <div class="card-icon" style="justify-content:flex-start; margin-bottom:14px;">Album</div>
-          <h3 class="card-title" style="font-size:26px;">Codice album</h3>
-          <p class="card-desc" style="margin-bottom:0;">
-            Una volta installata l'app, inserisci questo codice per accedere al nostro album condiviso e caricare le tue foto.<br>
-          </p>
-          <span class="album-code">ITfd8f1e18</span>
-          <p class="album-note">Oppure inquadra il QR code qui a fianco — ti porterà direttamente all'album.</p>
-        </div>
-        <div>
-          <div class="qr-wrap">
-            <div id="qr-album"></div>
-          </div>
-        </div>
-      </div>
-
+  <div class="store-cards">
+    <div class="card">
+      <p class="card-label">Android</p>
+      <h3 class="card-title">Google Play</h3>
+      <p class="card-desc">Inquadra con la fotocamera del tuo smartphone Android</p>
+      <div class="qr-wrap"><div id="qr-android"></div></div>
     </div>
-  </section>
+    <div class="card">
+      <p class="card-label">iPhone</p>
+      <h3 class="card-title">App Store</h3>
+      <p class="card-desc">Inquadra con la fotocamera del tuo iPhone o iPad</p>
+      <div class="qr-wrap"><div id="qr-ios"></div></div>
+    </div>
+  </div>
 
-  <footer>
-    <p class="footer-names">Con amore, Giuseppe &amp; Diana</p>
-    <span class="footer-heart">✦ ✦ ✦</span>
-  </footer>
+  <div class="album-card">
+    <p class="card-label">Album condiviso</p>
+    <h3 class="card-title">Codice album</h3>
+    <p class="card-desc">
+      Dopo aver installato l'app, inserisci questo codice per accedere al nostro album e caricare le tue foto.
+    </p>
+    <div class="album-code">ITfd8f1e18</div>
+    <p class="album-note">Oppure inquadra il QR code qui sotto — ti porterà direttamente all'album.</p>
+    <div class="qr-wrap"><div id="qr-album"></div></div>
+  </div>
+</section>
 
-</div>
+<footer>
+  <p class="footer-names">Con amore, Francesca &amp; Giuseppe</p>
+  <span class="footer-sym">✦ ✦ ✦</span>
+</footer>
 
 <script>
-  const opts = { width: 160, height: 160, colorDark: '#2C2015', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.H };
-
-  new QRCode(document.getElementById('qr-android'), {
-    ...opts,
-    text: 'https://play.google.com/store/apps/details?id=com.wedshootsapp.wedshoots'
-  });
-
-  new QRCode(document.getElementById('qr-ios'), {
-    ...opts,
-    text: 'https://apps.apple.com/app/wedshoots/id1481716343'
-  });
-
-  new QRCode(document.getElementById('qr-album'), {
-    ...opts,
-    text: 'ITfd8f1e18'
-  });
+(function() {
+  var w = Math.min(window.innerWidth || 360, 400);
+  var size = Math.max(130, Math.min(Math.floor(w * 0.55), 200));
+  var opts = {
+    width: size, height: size,
+    colorDark: '#2C2015', colorLight: '#FFFFFF',
+    correctLevel: QRCode.CorrectLevel.H
+  };
+  new QRCode(document.getElementById('qr-android'),
+    Object.assign({}, opts, { text: 'https://play.google.com/store/apps/details?id=com.wedshootsapp.wedshoots' }));
+  new QRCode(document.getElementById('qr-ios'),
+    Object.assign({}, opts, { text: 'https://apps.apple.com/app/wedshoots/id1481716343' }));
+  new QRCode(document.getElementById('qr-album'),
+    Object.assign({}, opts, { text: 'ITfd8f1e18' }));
+})();
 </script>
 </body>
 </html>
